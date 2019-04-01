@@ -27,4 +27,19 @@ feature 'Admin registers item type' do
 
     expect(page).to have_content('Não foi possível salvar o tipo de item')
   end
+
+  scenario 'and must be logged in' do
+    visit root_path
+
+    expect(page).not_to have_content('Tipos de itens')
+  end
+
+  scenario 'and must be admin' do
+    user = create(:user)
+    login_as user, scope: :user
+
+    visit root_path
+
+    expect(page).not_to have_content('Tipos de itens')
+  end
 end
