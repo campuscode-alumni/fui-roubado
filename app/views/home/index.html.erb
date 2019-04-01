@@ -1,4 +1,6 @@
 <h1>Fui roubado!</h1>
 <% if user_signed_in? %>
   <%= "Bem vindo, #{current_user.email}." %>
+<%elsif admin_signed_in? %>
+  <%= "Bem vindo, #{current_admin.email}." %>  
 <% end %>

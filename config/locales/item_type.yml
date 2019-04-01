@@ -1,0 +1,7 @@
+pt-BR:
+  activerecord:
+    models:
+      item_type: 'Tipo de item'
+    attributes:
+      item_type:
+        name: 'Nome'

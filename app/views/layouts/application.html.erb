@@ -13,9 +13,13 @@
     <nav>
     <% if user_signed_in? %>
       <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
+      <% elsif admin_signed_in? %>
+        <%= link_to  "Sair", destroy_admin_session_path, method: :delete %> | 
+        <%= link_to  "Tipos de itens", item_types_path %>
       <% else %>
-      <%= link_to  "Entrar", new_user_session_path %> | 
-      <%= link_to  "Novo usuário",  new_user_registration_path %>
+        <%= link_to  "Entrar como administrador", new_admin_session_path %> | 
+        <%= link_to  "Entrar", new_user_session_path %> | 
+        <%= link_to  "Novo usuário",  new_user_registration_path %>
     <% end %>
     </nav>
   
