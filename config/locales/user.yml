@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      user: 'Usuário'
+    attributes:
+      user:
+        name: 'Nome'
+        nickname: 'Apelido'
+        email: 'E-mail'
+        cpf: 'CPF'
+        city: 'Cidade'
+        city_id: 'Cidade'
+        password: 'Senha'
+        password_confirmation: 'Confirmar senha'
+        remember_me: 'Ficar conectado'
