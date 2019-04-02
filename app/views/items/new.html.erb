@@ -1,0 +1,13 @@
+<h1>Cadastrar novo item</h1>
+
+<%= simple_form_for @item do |f| %>
+  <%= f.association :item_type, label: 'Tipo' %>
+  <%= f.association :brand, label: 'Marca' %>
+  <%= f.input :title, label: 'Título' %>
+  <%= f.input :registry_number, label: 'Número de registro' %>
+  <%= f.input :model, label: 'Modelo' %>
+  <%= f.input :color, label: 'Cor' %>
+  <%= f.input :description, label: 'Descrição', as: :text %>
+  <%= f.input :photo, label: 'Foto', as: :file %>
+  <%= f.submit 'Enviar' %>
+<% end %>

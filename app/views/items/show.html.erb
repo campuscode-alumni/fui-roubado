@@ -1,0 +1,10 @@
+<h1><%= @item.title %></h1>
+<p><%= @item.item_type.name %></p>
+<p>Número de registro: <%= @item.registry_number %></p>
+<p><%= @item.brand.name%></p>
+<p><%= @item.model%></p>
+<p><%= @item.color%></p>
+<p><%= @item.description%></p>
+<% if @item.photo.attached? %>
+  <%= image_tag @item.photo %>
+<% end%>
