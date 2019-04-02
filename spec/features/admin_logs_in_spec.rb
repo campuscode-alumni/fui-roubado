@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Admin logs in' do 
+feature 'Admin logs in' do
   scenario 'successfully' do
     create(:admin, email: 'admin@email.com', password: '123456')
     visit root_path
@@ -24,5 +24,4 @@ feature 'Admin logs in' do
 
     expect(page).to have_content('E-mail ou senha inválida')
   end
-
 end

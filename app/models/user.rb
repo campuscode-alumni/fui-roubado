@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   belongs_to :city, optional: true
-  #validates :name, :cpf, presence: true
+  # validates :name, :cpf, presence: true
 end
