@@ -1,12 +1,12 @@
 FactoryBot.define do
   factory :item do
-    item_type { nil }
+    item_type
     status { nil }
-    title { "MyString" }
-    registry_number { "MyString" }
-    brand { nil }
-    model { "MyString" }
-    color { "MyString" }
-    description { "MyText" }
+    title { 'Item padrão' }
+    registry_number { '123456789' }
+    brand
+    model { 'Modelo padrão' }
+    color { 'Cor padrão' }
+    description { 'Descrição de item padrão' }
   end
 end

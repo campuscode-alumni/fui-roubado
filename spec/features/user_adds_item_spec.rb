@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User adds item' do 
+feature 'User adds item' do
   scenario 'successfully' do
     user = create(:user, name: 'Vini', email: 'vini@email.com')
     item_type = create(:item_type, name: 'Notebook')
@@ -49,10 +49,9 @@ feature 'User adds item' do
     expect(page).to have_content('não pode ficar em branco')
   end
 
-  scenario 'and must be logged in' do 
+  scenario 'and must be logged in' do
     visit new_item_path
 
     expect(current_path).to eq new_user_session_path
   end
-
 end

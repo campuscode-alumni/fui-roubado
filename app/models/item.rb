@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  enum status: [:owned, :stolen, :robbed]
+  enum status: %i[owned stolen robbed]
 
   belongs_to :item_type
   belongs_to :brand
