@@ -9,7 +9,7 @@ feature 'Visitor creates user account' do
     fill_in 'Senha', with: '123456'
     fill_in 'Confirmar senha', with: '123456'
     click_on 'Cadastrar'
-    
+
     expect(current_path).to eq root_path
     expect(page).to have_content('Bem vindo, pedro@email.com.')
   end
@@ -25,7 +25,5 @@ feature 'Visitor creates user account' do
 
     expect(page).to have_content('Senha não pode ficar em branco')
     expect(page).to have_content('E-mail não pode ficar em branco')
-
   end
 end
-

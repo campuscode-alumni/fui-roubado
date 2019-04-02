@@ -20,8 +20,8 @@ class ItemTypesController < ApplicationController
   end
 
   private
+
   def item_type_params
     params.require(:item_type).permit(:name)
   end
-
 end
