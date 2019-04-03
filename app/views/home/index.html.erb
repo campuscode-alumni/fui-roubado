@@ -6,7 +6,11 @@
   <%= "Bem vindo, #{current_admin.email}." %>  
 <% end %>
 
-<h2>Busca</h2>
-<%#= simple_form_for @item do |f| %>
-  <%#= f.association :item_type%>
-<%# end %>
+<h2>Pesquisar item roubado</h2>
+<%= form_tag search_path, method: :get do %>
+  <%= label_tag :item_type_id, 'Tipo' %>
+  <%= select_tag :item_type_id, options_from_collection_for_select(ItemType.all, :id, :name) %>
+  <%= label_tag :q, 'Número de registro' %>
+  <%= text_field_tag :q %>
+  <%= submit_tag 'Buscar' %>
+<% end %>

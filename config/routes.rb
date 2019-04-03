@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :item_types, only: %i[index new create edit update]
   resources :items
+
+  get 'search', to: 'items#search'
+  
 end
