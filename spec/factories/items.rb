@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :item do
     item_type
+    user
     status { nil }
     title { 'Item padrão' }
     registry_number { '123456789' }

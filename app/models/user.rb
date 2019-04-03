@@ -6,4 +6,5 @@ class User < ApplicationRecord
   belongs_to :city
   validates :name, :cpf, presence: true
   has_one_attached :photo
+  has_many :items, dependent: :destroy
 end

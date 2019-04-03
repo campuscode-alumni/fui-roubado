@@ -1,0 +1,10 @@
+<h1>Meus itens</h1>
+<ul>
+<% @items.each do |item| %>
+  <li> <%= link_to  item.title, item %> 
+  <% if item.photo.attached? %>
+    <%= image_tag item.photo %>
+  <% end %>
+  </li>
+<% end %>
+</ul>

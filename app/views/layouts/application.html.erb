@@ -12,6 +12,7 @@
   <body>
     <nav>
     <% if user_signed_in? %>
+      <%= link_to  "Meus itens", my_items_path %> | 
       <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
     <% elsif admin_signed_in? %>
       <%= link_to  "Sair", destroy_admin_session_path, method: :delete %> | 
