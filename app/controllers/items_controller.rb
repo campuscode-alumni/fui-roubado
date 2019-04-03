@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create show]
+  before_action :authenticate_user!, only: %i[new create show my]
 
   def new
     @item = Item.new
@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.user = current_user
     if @item.save
       redirect_to @item
     else
@@ -17,6 +18,14 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+  end
+
+  def my
+    @items = Item.where(user: current_user)
+
+    return if @items.any?
+
+    flash[:alert] = 'Não há itens cadastrados'
   end
 
   def search

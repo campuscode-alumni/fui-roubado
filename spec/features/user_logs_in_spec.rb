@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User logs in' do
   scenario 'successfully' do
-    create(:user, email: 'pedro@email.com', password: '123456')
+    create(:user, name: 'Pedro', email: 'pedro@email.com', password: '123456')
 
     visit root_path
     click_on 'Entrar'
@@ -11,7 +11,7 @@ feature 'User logs in' do
     click_on 'Enviar'
 
     expect(current_path).to eq root_path
-    expect(page).to have_content('Bem vindo, pedro@email.com.')
+    expect(page).to have_content('Bem vindo, Pedro.')
     expect(page).not_to have_content('Entrar')
     expect(page).to have_content('Sair')
   end

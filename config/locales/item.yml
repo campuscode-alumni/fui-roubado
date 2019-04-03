@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      item: 'Item'
+    attributes:
+      item:
+        brand: 'Marca'
+        color: 'Cor'
+        description: 'Descrição'
+        item_type: 'Tipo de item'
+        model: 'Modelo'
+        registry_number: 'Número de registro'
+        title: 'Título'
+        user: 'Usuário'

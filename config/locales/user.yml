@@ -13,3 +13,4 @@ pt-BR:
         password: 'Senha'
         password_confirmation: 'Confirmar senha'
         remember_me: 'Ficar conectado'
+        photo: 'Foto'
