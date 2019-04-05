@@ -1,5 +1,4 @@
 class ReportsController < ApplicationController
-
   def new
     @report = Report.new
   end
@@ -22,6 +21,7 @@ class ReportsController < ApplicationController
   private
 
   def report_params
-    params.require(:report).permit(:address, :ocurrance_date, :description, :police_report, item_ids:[])
+    params.require(:report).permit(:address, :ocurrance_date,
+                                   :description, :police_report, item_ids: [])
   end
 end

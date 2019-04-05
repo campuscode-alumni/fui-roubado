@@ -11,6 +11,7 @@
 
   <body>
     <nav>
+    <%= link_to 'Home', root_path %> | 
     <% if user_signed_in? %>
       <%= link_to  "Meus itens", my_items_path %> | 
       <%= link_to "Fui roubado!", new_report_path %> | 

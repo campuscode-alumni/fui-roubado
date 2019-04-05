@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      report: 'Relatório'
+    attributes:
+      report:
+        ocurrance_date: 'Data da ocorrência'
+        description: 'Descrição'
+        item: 'Item'
+        address: 'Endereço'
+        police_report: 'Boletim de ocorrência'

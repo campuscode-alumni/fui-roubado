@@ -4,7 +4,8 @@ feature 'User views his registered items' do
   scenario 'successfully' do
     user1 = create(:user)
     item1 = create(:item, title: 'Notebook Macbook Pro', user: user1)
-    item1.photo.attach(io: File.open(Rails.root.join('spec', 'support', 'notebook.jpg')), filename: 'notebook.jpg') 
+    item1.photo.attach(io: File.open(Rails.root
+      .join('spec', 'support', 'notebook.jpg')), filename: 'notebook.jpg')
     create(:item, title: 'Smartphone Samsung', user: user1)
     create(:item, title: 'Camera fotográfica Sony', user: user1)
 
@@ -24,7 +25,8 @@ feature 'User views his registered items' do
     user1 = create(:user)
     user2 = create(:user)
     item1 = create(:item, title: 'Notebook Macbook Pro', user: user1)
-    item1.photo.attach(io: File.open(Rails.root.join('spec', 'support', 'notebook.jpg')), filename: 'notebook.jpg') 
+    item1.photo.attach(io: File.open(Rails.root
+      .join('spec', 'support', 'notebook.jpg')), filename: 'notebook.jpg')
     create(:item, title: 'Smartphone Samsung', user: user1)
     create(:item, title: 'Camera fotográfica Sony', user: user1)
     create(:item, title: 'Notebook Dell', user: user2)
