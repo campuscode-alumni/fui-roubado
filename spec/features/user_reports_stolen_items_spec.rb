@@ -16,7 +16,7 @@ feature 'User reports stolen items' do
     login_as user, scope: :user
 
     visit root_path
-    click_on 'Fui roubado!'
+    click_on 'Reportar roubo'
     fill_in 'Endereço', with: 'Rua Alemada Santos, 1293'
     select '2', from: 'report_ocurrance_date_3i'
     select 'Janeiro', from: 'report_ocurrance_date_2i'

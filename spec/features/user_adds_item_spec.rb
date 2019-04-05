@@ -8,6 +8,7 @@ feature 'User adds item' do
     login_as user, scope: :user
 
     visit root_path
+    click_on 'Meus itens'
     click_on 'Cadastrar item'
     select 'Notebook', from: 'Tipo'
     select 'Apple', from: 'Marca'
@@ -37,6 +38,7 @@ feature 'User adds item' do
     login_as user, scope: :user
 
     visit root_path
+    click_on 'Meus itens'
     click_on 'Cadastrar item'
     fill_in 'Título', with: ''
     fill_in 'Número de registro', with: ''
@@ -57,6 +59,7 @@ feature 'User adds item' do
     login_as user, scope: :user
 
     visit root_path
+    click_on 'Meus itens'
     click_on 'Cadastrar item'
     select 'Notebook', from: 'Tipo'
     select 'Apple', from: 'Marca'
