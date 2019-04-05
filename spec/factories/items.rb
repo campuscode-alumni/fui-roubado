@@ -4,7 +4,7 @@ FactoryBot.define do
     user
     status { nil }
     title { 'Item padrão' }
-    registry_number { '123456789' }
+    sequence(:registry_number) { |n| "123456789#{n}" }
     brand
     model { 'Modelo padrão' }
     color { 'Cor padrão' }
