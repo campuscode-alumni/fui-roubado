@@ -53,7 +53,7 @@ feature 'User adds item' do
     user = create(:user, name: 'Vini', email: 'vini@email.com')
     item_type = create(:item_type, name: 'Notebook')
     create(:brand, name: 'Apple', item_type: item_type)
-    item = create(:item, registry_number: '25692765278', user: user)
+    create(:item, registry_number: '25692765278', user: user)
     login_as user, scope: :user
 
     visit root_path
@@ -67,9 +67,8 @@ feature 'User adds item' do
     fill_in 'Descrição', with: 'Tem um adesivo de ursinho na tampa.'
     attach_file 'Foto', Rails.root.join('spec', 'support', 'notebook.jpg')
     click_on 'Enviar'
-   
+
     expect(page).to have_content('Número de registro já está em uso')
-   
   end
 
   scenario 'and must be logged in' do
