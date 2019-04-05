@@ -3,8 +3,8 @@ require 'rails_helper'
 feature 'User views his registered items' do
   scenario 'successfully' do
     user1 = create(:user)
-    create(:item, title: 'Notebook Macbook Pro', user: user1)
-    # item1.photo =  Rails.root.join('spec', 'support', 'notebook.jpg')
+    item1 = create(:item, title: 'Notebook Macbook Pro', user: user1)
+    item1.photo.attach(io: File.open(Rails.root.join('spec', 'support', 'notebook.jpg')), filename: 'notebook.jpg') 
     create(:item, title: 'Smartphone Samsung', user: user1)
     create(:item, title: 'Camera fotográfica Sony', user: user1)
 
@@ -15,7 +15,7 @@ feature 'User views his registered items' do
 
     expect(current_path).to eq my_items_path
     expect(page).to have_css('li', text: 'Notebook Macbook Pro')
-    # expect(page).to have_css('img[src*="notebook.jpg"]')
+    expect(page).to have_css('img[src*="notebook.jpg"]')
     expect(page).to have_css('li', text: 'Smartphone Samsung')
     expect(page).to have_css('li', text: 'Camera fotográfica Sony')
   end
@@ -23,8 +23,8 @@ feature 'User views his registered items' do
   scenario 'and sees only his items' do
     user1 = create(:user)
     user2 = create(:user)
-    create(:item, title: 'Notebook Macbook Pro', user: user1)
-    # item1.photo =  Rails.root.join('spec', 'support', 'notebook.jpg')
+    item1 = create(:item, title: 'Notebook Macbook Pro', user: user1)
+    item1.photo.attach(io: File.open(Rails.root.join('spec', 'support', 'notebook.jpg')), filename: 'notebook.jpg') 
     create(:item, title: 'Smartphone Samsung', user: user1)
     create(:item, title: 'Camera fotográfica Sony', user: user1)
     create(:item, title: 'Notebook Dell', user: user2)
@@ -37,7 +37,7 @@ feature 'User views his registered items' do
 
     expect(current_path).to eq my_items_path
     expect(page).to have_css('li', text: 'Notebook Macbook Pro')
-    # expect(page).to have_css('img[src*="notebook.jpg"]')
+    expect(page).to have_css('img[src*="notebook.jpg"]')
     expect(page).to have_css('li', text: 'Smartphone Samsung')
     expect(page).to have_css('li', text: 'Camera fotográfica Sony')
     expect(page).not_to have_css('li', text: 'Notebook Dell')
