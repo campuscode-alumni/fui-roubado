@@ -1,4 +1,5 @@
 class Report < ApplicationRecord
-  belongs_to :item
   has_one_attached :police_report
+  has_many :items
+  validates :ocurrance_date, :address, :items, presence: true
 end

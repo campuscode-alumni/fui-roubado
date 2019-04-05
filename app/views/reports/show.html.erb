@@ -1,0 +1,13 @@
+<h1><%= @report.address %></h1>
+<h2><%= @report.ocurrance_date%></h2>
+<p><%= @report.description %></p>
+<h3> Itens </h3>
+<ul>
+<% @report_items.each do |item| %>
+  <li><%= item.title %></li>
+<% end %>
+</ul>
+<h3>Boletim de ocorrência</h3>
+<% if @report.police_report.attached? %>
+  <%= image_tag @report.police_report %>
+<% end %>
