@@ -15,10 +15,10 @@ feature 'User views his registered items' do
     click_on 'Meus itens'
 
     expect(current_path).to eq my_items_path
-    expect(page).to have_css('li', text: 'Notebook Macbook Pro')
+    expect(page).to have_link('Notebook Macbook Pro')
     expect(page).to have_css('img[src*="notebook.jpg"]')
-    expect(page).to have_css('li', text: 'Smartphone Samsung')
-    expect(page).to have_css('li', text: 'Camera fotográfica Sony')
+    expect(page).to have_link('Smartphone Samsung')
+    expect(page).to have_link('Camera fotográfica Sony')
   end
 
   scenario 'and sees only his items' do
@@ -38,12 +38,12 @@ feature 'User views his registered items' do
     click_on 'Meus itens'
 
     expect(current_path).to eq my_items_path
-    expect(page).to have_css('li', text: 'Notebook Macbook Pro')
+    expect(page).to have_link('Notebook Macbook Pro')
     expect(page).to have_css('img[src*="notebook.jpg"]')
-    expect(page).to have_css('li', text: 'Smartphone Samsung')
-    expect(page).to have_css('li', text: 'Camera fotográfica Sony')
-    expect(page).not_to have_css('li', text: 'Notebook Dell')
-    expect(page).not_to have_css('li', text: 'Smartphone Motorola')
+    expect(page).to have_link('Smartphone Samsung')
+    expect(page).to have_link('Camera fotográfica Sony')
+    expect(page).not_to have_link('Notebook Dell')
+    expect(page).not_to have_link('Smartphone Motorola')
   end
 
   scenario 'and has no registered items' do
@@ -59,8 +59,8 @@ feature 'User views his registered items' do
 
     expect(current_path).to eq my_items_path
     expect(page).to have_content('Não há itens cadastrados')
-    expect(page).not_to have_css('li', text: 'Notebook Dell')
-    expect(page).not_to have_css('li', text: 'Smartphone Motorola')
+    expect(page).not_to have_link('Notebook Dell')
+    expect(page).not_to have_link('Smartphone Motorola')
   end
 
   scenario 'and views item details' do
@@ -77,9 +77,9 @@ feature 'User views his registered items' do
     click_on 'Notebook Dell'
 
     expect(current_path).to eq item_path(1)
-    expect(page).to have_css('h1', text: 'Notebook Dell')
-    expect(page).to have_css('p', text: 'Notebook')
-    expect(page).to have_css('p', text: 'Número de registro: ouhfoe121414')
+    expect(page).to have_css('h3', text: 'Notebook Dell')
+    expect(page).to have_css('h5', text: 'Notebook')
+    expect(page).to have_css('h6', text: 'Número de registro: ouhfoe121414')
     expect(page).to have_css('p', text: 'Apple')
     expect(page).to have_css('p', text: 'XP-2011')
     expect(page).to have_css('p', text: 'Branco')

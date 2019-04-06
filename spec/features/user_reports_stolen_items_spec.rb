@@ -32,8 +32,8 @@ feature 'User reports stolen items' do
     click_on 'Reportar'
 
     expect(current_path).to eq report_path(1)
-    expect(page).to have_css('h1', text: 'Rua Alemada Santos, 1293')
-    expect(page).to have_css('h2', text: '2019-01-02 20:00:00')
+    expect(page).to have_css('h3', text: 'Rua Alemada Santos, 1293')
+    expect(page).to have_css('h5', text: '2019-01-02 20:00:00')
     expect(page).to have_css('p', text: 'Assalto a mão armada'\
                                         ' no ponto de ônibus')
     expect(page).to have_css('li', text: 'Notebook Dell')

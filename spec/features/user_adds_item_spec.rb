@@ -21,9 +21,9 @@ feature 'User adds item' do
     click_on 'Enviar'
 
     expect(current_path).to eq item_path(1)
-    expect(page).to have_css('h1', text: 'MacbookPro 2011')
-    expect(page).to have_css('p', text: 'Notebook')
-    expect(page).to have_css('p', text: 'Número de registro: 25692765278')
+    expect(page).to have_css('h3', text: 'MacbookPro 2011')
+    expect(page).to have_css('h5', text: 'Notebook')
+    expect(page).to have_css('h6', text: 'Número de registro: 25692765278')
     expect(page).to have_css('p', text: 'Apple')
     expect(page).to have_css('p', text: 'Pro-2011')
     expect(page).to have_css('p', text: 'Branco')

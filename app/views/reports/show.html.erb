@@ -1,13 +1,23 @@
-<h1><%= @report.address %></h1>
-<h2><%= @report.ocurrance_date%></h2>
-<p><%= @report.description %></p>
-<h3> Itens </h3>
-<ul>
-<% @report_items.each do |item| %>
-  <li><%= item.title %></li>
-<% end %>
-</ul>
-<h3>Boletim de ocorrência</h3>
-<% if @report.police_report.attached? %>
-  <%= image_tag @report.police_report %>
-<% end %>
+<div class="card mb-3">
+  <h3 class="card-header"><%= @report.address %></h3>
+  <div class="card-body">
+    <h5 class="card-title"><%= @report.ocurrance_date%></h5>
+  </div>
+  <div class="card-body">
+    <p class="card-text">Descrição do ocorrido: <%= @report.description %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <% @report_items.each do |item| %>
+      <li class="list-group-item"><%= link_to item.title, item %></li>
+    <% end %>
+  </ul>
+  <div class="card-body">
+    <h6 class="card-subtitle text-muted">Boletim de ocorrência</h6>
+      <% if @report.police_report.attached? %>
+        <%= image_tag @report.police_report %>
+      <% end %>
+  </div>
+  <div class="card-footer text-muted">
+    Footer
+  </div>
+</div>
