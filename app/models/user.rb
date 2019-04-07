@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :name, :cpf, presence: true
   has_one_attached :photo
   has_many :items, dependent: :destroy
+  has_many :reports, dependent: :nullify
 end
