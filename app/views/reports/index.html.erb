@@ -5,7 +5,7 @@
   <div class="card border-secondary mb-3" style="max-width: 20rem;">
     <div class="card-header"><%= link_to report.address, report %></div>
     <div class="card-body">
-        <h4 class="card-title">report.ocurance_date</h4>
+        <h4 class="card-title"><%= report.ocurrance_date%></h4>
         <% if report.police_report.attached? %>
             <%= image_tag report.police_report %>
         <% end %>
