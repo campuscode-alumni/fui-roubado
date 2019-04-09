@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
       flash[:notice] = 'Item excluido com sucesso'
       redirect_to my_items_path
     else
-      redirect_to root_path, status: 403
+      redirect_to root_path, status: :forbidden
     end
   end
 
