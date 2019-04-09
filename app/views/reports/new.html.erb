@@ -1,9 +1,13 @@
-<h1>Reportar roubo</h1>
-<%= simple_form_for @report do |f| %>
-  <%= f.input :address, label: 'Endereço' %>
-  <%= f.input :ocurrance_date, html: true %>
-  <%= f.input :description, label: 'Descrição do ocorrido' %>
-  <%= f.input :police_report, label: 'Boletim de ocorrência', as: :file %>
-  <%= f.association :items, as: :check_boxes %>
-  <%= f.submit 'Reportar' %>
-<% end %>
+<div class="container">
+  <h1>Reportar roubo</h1>
+  <%= simple_form_for @report do |f| %>
+    <%= f.input :address, label: 'Endereço' %>
+    <%= f.input :ocurrance_date, html: true %>
+    <%= f.input :description, label: 'Descrição do ocorrido' %>
+    <%= f.input :police_report, label: 'Boletim de ocorrência', as: :file,
+      wrapper_html: { class: 'custom-file mb-3 mt-2' }, input_html: { class: 'custom-file-input' },
+      label_html: { class: 'custom-file-label' } %>
+    <%= f.association :items, as: :check_boxes %>
+    <%= f.submit 'Reportar' %>
+  <% end %>
+</div>

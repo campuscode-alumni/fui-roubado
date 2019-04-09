@@ -1,14 +1,22 @@
-<% if user_signed_in? %>
-  <p><%= "Bem vindo, #{current_user.name}." %></p>
-<%elsif admin_signed_in? %>
-  <%= "Bem vindo, #{current_admin.email}." %>  
-<% end %>
+<div class="container">
+  <% if user_signed_in? %>
+    <p><%= "Bem vindo, #{current_user.name}." %></p>
+  <%elsif admin_signed_in? %>
+    <%= "Bem vindo, #{current_admin.email}." %>
+  <% end %>
 
-<h2>Pesquisar item roubado</h2>
-<%= form_tag search_path, method: :get do %>
-  <%= label_tag :item_type_id, 'Tipo' %>
-  <%= select_tag :item_type_id, options_from_collection_for_select(ItemType.all, :id, :name) %>
-  <%= label_tag :q, 'Número de registro' %>
-  <%= text_field_tag :q %>
-  <%= submit_tag 'Buscar' %>
-<% end %>
+  <div class="mb-4">
+    <h2>Pesquisar item roubado</h2>
+  </div>
+  <%= form_tag search_path, method: :get, class: 'form-inline' do %>
+    <div class="form-group">
+      <%= label_tag :item_type_id, 'Tipo', class: 'mx-sm-2' %>
+      <%= select_tag :item_type_id, options_from_collection_for_select(ItemType.all, :id, :name), class: 'form-control' %>
+    </div>
+    <div class="form-group mx-sm-2">
+      <%= label_tag :q, 'Número de registro', class: 'mx-sm-2' %>
+      <%= text_field_tag :q, nil, class: 'form-control' %>
+    </div>
+    <%= submit_tag 'Buscar', class: 'btn btn-primary' %>
+  <% end %>
+</div>

@@ -1,0 +1,31 @@
+footer.sticky-footer {
+  padding: 2rem 0;
+  flex-shrink: 0;
+  .copyright {
+    line-height: 1;
+    font-size: 0.8rem;
+  }
+
+  position: relative;
+  margin-top: -75px;
+  height: 75px;
+}
+
+body.sidebar-toggled {
+  footer.sticky-footer {
+    width: 100%;
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+#wrapper {
+  min-height: 100%;
+  padding-bottom: 75px;
+}

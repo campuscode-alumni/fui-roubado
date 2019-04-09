@@ -1,20 +1,18 @@
-
-<div class="card mb-3">
-  <h3 class="card-header"><%= @item.title %></h3>
-  <div class="card-body">
-    <h5 class="card-title"><%= @item.item_type.name %></h5>
-    <h6 class="card-subtitle text-muted">Número de registro: <%= @item.registry_number %></h6>
-  </div>
-  <div class="card-body">
-    <p class="card-text">Marcar: <%= @item.brand.name%></p>
-    <p class="card-text">Modelo: <%= @item.model%></p>
-    <p class="card-text">Cor: <%= @item.color%></p>
-    <p class="card-text">Descrição: <%= @item.description%></p>
-    <% if @item.photo.attached? %>
-      <%= image_tag @item.photo %>
-    <% end%>
-  </div>
-  <div class="card-footer text-muted">
-    Footer
+<div class="container">
+  <div class="card mb-3">
+    <h3 class="card-header"><%= @item.title %></h3>
+    <div class="card-body">
+      <h5 class="card-title"><%= @item.item_type.name %></h5>
+      <h6 class="card-subtitle text-muted">Número de registro: <%= @item.registry_number %></h6>
+    </div>
+    <div class="card-body">
+      <p class="card-text">Marcar: <%= @item.brand.name%></p>
+      <p class="card-text">Modelo: <%= @item.model%></p>
+      <p class="card-text">Cor: <%= @item.color%></p>
+      <p class="card-text">Descrição: <%= @item.description%></p>
+      <% if @item.photo.attached? %>
+        <%= image_tag @item.photo.variant(resize: "300x") %>
+      <% end%>
+    </div>
   </div>
 </div>
