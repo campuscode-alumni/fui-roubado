@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User delete item' do
   scenario 'successfuly' do
-    user = create(:user, name: 'Vini', email: 'vini@email.com')
+    user = create(:user, name: 'Vini')
     create(:item, title: 'Meu pc', user: user)
     create(:item, title: 'Meu celular', user: user)
     login_as user, scope: :user
