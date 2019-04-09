@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin logs in' do
   scenario 'successfully' do
-    admin = create(:admin, password: '123456')
+    admin = create(:admin, email: 'admin@email.com', password: '123456')
     visit root_path
     visit new_admin_session_path
     fill_in 'E-mail', with: admin.email
