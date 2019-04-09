@@ -14,5 +14,8 @@
         <%= image_tag @item.photo.variant(resize: "300x") %>
       <% end%>
     </div>
+    <div class="card-footer text-muted">
+      <p class="text-info"><%= link_to 'Excluir item', item_path , method: :delete %><p>
+    </div>
   </div>
 </div>

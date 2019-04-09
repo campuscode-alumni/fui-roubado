@@ -28,6 +28,17 @@ class ItemsController < ApplicationController
     flash[:alert] = 'Não há itens cadastrados'
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.user == current_user
+      @item.destroy
+      flash[:notice] = 'Item excluido com sucesso'
+      redirect_to my_items_path
+    else
+      redirect_to root_path, status: :forbidden
+    end
+  end
+
   def search
     @search_results = Item.where(registry_number: params[:q],
                                  item_type_id: params[:item_type_id])
