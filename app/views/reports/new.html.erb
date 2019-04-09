@@ -4,6 +4,6 @@
   <%= f.input :ocurrance_date, html: true %>
   <%= f.input :description, label: 'Descrição do ocorrido' %>
   <%= f.input :police_report, label: 'Boletim de ocorrência', as: :file %>
-  <%= f.association :items, as: :check_boxes %>
+  <%= f.collection_check_boxes :item_ids, @items, :id, :title %>
   <%= f.submit 'Reportar' %>
 <% end %>

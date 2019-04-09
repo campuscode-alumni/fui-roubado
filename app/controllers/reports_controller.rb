@@ -11,15 +11,21 @@ class ReportsController < ApplicationController
 
   def new
     @report = Report.new
+    @items = Item.where(user: current_user, status: :owned)
   end
 
   def create
     @report = Report.new(report_params)
     @report.user = current_user
     if @report.save
+      @items = @report.items 
+      @items.each do |item|
+        item.update(status: :stolen)
+      end 
       redirect_to @report
     else
       flash[:alert] = 'Não foi possível criar o relatório'
+      @items = Item.where(user: current_user, status: :owned)
       render :new
     end
   end
