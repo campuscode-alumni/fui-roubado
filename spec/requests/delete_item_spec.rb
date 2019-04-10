@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 describe 'User deletes item' do
-
-  it "should be item owner" do
+  it 'should be item owner' do
     user = create(:user, name: 'Vini', email: 'vini@email.com')
     user2 = create(:user, name: 'Paulo', email: 'paulo@email.com')
     item = create(:item, title: 'Meu pc', user: user2)

@@ -21,9 +21,6 @@ feature 'visitor search item' do
     expect(page).not_to have_content('abcd')
     expect(page).not_to have_content('O item procurado não está registrado'\
                                      ' como roubado ou furtado.')
-    expect(page).to have_css('p', text: 'O Notebook com número de registro'\
-                                        ' 12345678910 foi reportado como'\
-                                        ' roubado')
   end
 
   scenario 'and finds no matches' do
