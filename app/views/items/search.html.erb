@@ -1,6 +1,18 @@
 <div class="container">
   <h1>Resultados da busca</h1>
-  <% if @search_results.present? %>
-    <p><%= "O #{@search_results.item_type.name} com número de registro #{@search_results.registry_number} foi reportado como roubado" %></p>
+<% if @search_results.present? %>
+  <% @search_results.each do |item| %>
+      <%= item.item_type.name %>
+      <%= item.registry_number %>
+      <%= item.photo %>
+
+      <%= simple_form_for([item, @item_found]) do |f| %>
+        <%= f.input :message, label: 'Paradeiro do item:' %>
+        <%= f.input :email %>
+        <%= f.submit 'Enviar para o proprietário' %>
+      <% end %>
   <% end %>
+<% else %>
+  <p>O item procurado não está registrado como roubado ou furtado.</p>
+<% end %>
 </div>

@@ -1,3 +1,4 @@
+
 <div class="container">
   <h1>Reportar roubo</h1>
   <%= simple_form_for @report do |f| %>
@@ -7,7 +8,7 @@
     <%= f.input :police_report, label: 'Boletim de ocorrência', as: :file,
       wrapper_html: { class: 'custom-file mb-3 mt-2' }, input_html: { class: 'custom-file-input' },
       label_html: { class: 'custom-file-label' } %>
-    <%= f.association :items, as: :check_boxes %>
+    <%= f.collection_check_boxes :item_ids, @items, :id, :title %>
     <%= f.submit 'Reportar' %>
   <% end %>
 </div>

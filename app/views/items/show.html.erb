@@ -1,4 +1,7 @@
 <div class="container">
+
+  <% if user_signed_in? %>
+
   <div class="card mb-3">
     <h3 class="card-header"><%= @item.title %></h3>
     <div class="card-body">
@@ -10,12 +13,21 @@
       <p class="card-text">Modelo: <%= @item.model%></p>
       <p class="card-text">Cor: <%= @item.color%></p>
       <p class="card-text">Descrição: <%= @item.description%></p>
-      <% if @item.photo.attached? %>
-        <%= image_tag @item.photo.variant(resize: "300x") %>
-      <% end%>
-    </div>
-    <div class="card-footer text-muted">
-      <p class="text-info"><%= link_to 'Excluir item', item_path , method: :delete %><p>
-    </div>
+
+        <% if @item.photo.attached? %>
+          <%= image_tag @item.photo %>
+        <% end %>
+  <% else %>
+    <%= simple_form_for([@item, @item_found]) do |f| %>
+      <%= f.input :message, label: 'Paradeiro do item:' %>
+      <%= f.input :email %>
+      <%= f.submit 'Enviar para o proprietário' %>
+    <% end %>
+  <% end %>
+  </div>
+  <div class="card-footer text-muted">
+  <p class="text-info"><%= link_to 'Excluir item', item_path , method: :delete %><p>
+    Footer
   </div>
 </div>
+

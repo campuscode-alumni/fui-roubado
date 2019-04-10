@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Visitor views map' do 
+feature 'Visitor views map' do
   scenario 'successfully' do
     pending
     visit root_path

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_10_205920) do
+ActiveRecord::Schema.define(version: 2019_04_10_000630) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 2019_04_10_205920) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "item_founds", force: :cascade do |t|
+    t.integer "item_id"
+    t.text "message"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_founds_on_item_id"
+  end
+
   create_table "item_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -91,8 +100,8 @@ ActiveRecord::Schema.define(version: 2019_04_10_205920) do
     t.datetime "updated_at", null: false
     t.string "address"
     t.integer "user_id"
-    t.float "longitude"
     t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 

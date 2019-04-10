@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create show my]
+  before_action :authenticate_user!, only: %i[new create my]
 
   def new
     @item = Item.new
@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @item_found = ItemFound.new
   end
 
   def my
@@ -42,12 +43,8 @@ class ItemsController < ApplicationController
   def search
     @search_results = Item.where(registry_number: params[:q],
                                  item_type_id: params[:item_type_id])
-                          .where.not(status: :owned).limit(1).first
-
-    return if @search_results.present?
-
-    flash[:alert] = 'O item procurado não está registrado como'\
-                    ' roubado ou furtado.'
+                          .where.not(status: :owned)
+    @item_found = ItemFound.new
   end
 
   private
