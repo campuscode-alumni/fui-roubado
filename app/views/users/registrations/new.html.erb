@@ -1,43 +1,49 @@
-<h2>Sign up</h2>
+<div class="container mb-4">
+  <h2>Novo usuário</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
+    <div class="form-inputs">
 
-    <%= f.input :name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "nome" }%>
-    <%= f.input :nickname,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "apelido" }%>
-    <%= f.input :cpf,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "cpf" }%>
-    <%= f.association :city,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "cidade" }%>
-    <%= f.input :photo, as: :file %>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "e-mail" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+      <%= f.input :name,
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "nome" }%>
+      <%= f.input :nickname,
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "apelido" }%>
+      <%= f.input :cpf,
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "cpf" }%>
+      <%= f.association :city,
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "cidade" }%>
+      <%= f.input :photo, as: :file, wrapper_html: { class: 'custom-file mb-3 mt-2' }, input_html: { class: 'custom-file-input' },
+        label_html: { class: 'custom-file-label' } %>
+      <%= f.input :email,
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "e-mail" }%>
+      <%= f.input :password,
+        required: true,
+        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+        input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+        required: true,
+        input_html: { autocomplete: "new-password" } %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, 'Cadastrar', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+
+  <div class="mt-3">
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, 'Cadastrar' %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

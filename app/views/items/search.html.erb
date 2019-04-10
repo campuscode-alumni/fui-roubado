@@ -1,4 +1,6 @@
-<h1>Resultados da busca</h1>
-<% if @search_results.present? %>
-  <p><%= "O #{@search_results.item_type.name} com número de registro #{@search_results.registry_number} foi reportado como roubado" %></p>
-<% end %>
+<div class="container">
+  <h1>Resultados da busca</h1>
+  <% if @search_results.present? %>
+    <p><%= "O #{@search_results.item_type.name} com número de registro #{@search_results.registry_number} foi reportado como roubado" %></p>
+  <% end %>
+</div>

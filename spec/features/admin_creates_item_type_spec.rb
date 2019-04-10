@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin registers item type' do
   scenario 'successfully' do
-    admin = create(:admin, email: 'admin@email.com', password: '123456')
+    admin = create(:admin)
     login_as admin, scope: :admin
 
     visit root_path
@@ -16,7 +16,7 @@ feature 'Admin registers item type' do
   end
 
   scenario 'and type must have a name' do
-    admin = create(:admin, email: 'admin@email.com', password: '123456')
+    admin = create(:admin)
     login_as admin, scope: :admin
 
     visit root_path

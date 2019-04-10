@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User adds item' do
   scenario 'successfully' do
-    user = create(:user, name: 'Vini', email: 'vini@email.com')
+    user = create(:user, name: 'Vini')
     item_type = create(:item_type, name: 'Notebook')
     create(:brand, name: 'Apple', item_type: item_type)
     login_as user, scope: :user
@@ -32,7 +32,7 @@ feature 'User adds item' do
   end
 
   scenario 'and title, type, brand, registry number cant be blank' do
-    user = create(:user, name: 'Vini', email: 'vini@email.com')
+    user = create(:user, name: 'Vini')
     item_type = create(:item_type, name: 'Notebook')
     create(:brand, name: 'Apple', item_type: item_type)
     login_as user, scope: :user
@@ -52,7 +52,7 @@ feature 'User adds item' do
   end
 
   scenario 'and register unique value' do
-    user = create(:user, name: 'Vini', email: 'vini@email.com')
+    user = create(:user, name: 'Vini')
     item_type = create(:item_type, name: 'Notebook')
     create(:brand, name: 'Apple', item_type: item_type)
     create(:item, registry_number: '25692765278', user: user)
