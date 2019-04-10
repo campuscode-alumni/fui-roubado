@@ -38,6 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem 'font-awesome-sass', '~> 5.8.1'
+gem 'geocoder'
 gem 'jquery-rails'
 gem 'simple_form'
 
