@@ -7,10 +7,14 @@ Rails.application.routes.draw do
   resources :item_types, only: %i[index new create edit update]
   resources :items do
     get 'my', on: :collection
+    resources :item_founds, only: [:create]
   end
+
+  resources :item_founds, only: [:show]
 
   get 'search', to: 'items#search'
   
   resources :reports
+  
 
 end
