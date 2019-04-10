@@ -18,10 +18,7 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
     @report.user = current_user
     if @report.save
-      @items = @report.items 
-      @items.each do |item|
-        item.update(status: :stolen)
-      end 
+      stolen_status(@report.items)
       redirect_to @report
     else
       flash[:alert] = 'Não foi possível criar o relatório'
@@ -40,5 +37,11 @@ class ReportsController < ApplicationController
   def report_params
     params.require(:report).permit(:address, :ocurrance_date,
                                    :description, :police_report, item_ids: [])
+  end
+
+  def stolen_status(items)
+    items.each do |item|
+      item.update(status: :stolen)
+    end
   end
 end

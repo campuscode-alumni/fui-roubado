@@ -5,12 +5,13 @@ feature 'User reports stolen items' do
     user = create(:user)
     item_type = create(:item_type, name: 'Notebook')
     item_type2 = create(:item_type, name: 'Smartphone')
-    item1 = create(:item, title: 'Notebook Dell', registry_number: '12345678910',
-                  status: :owned,
-                  item_type: item_type, user: user)
+    item1 = create(:item, title: 'Notebook Dell',
+                          registry_number: '12345678910',
+                          status: :owned,
+                          item_type: item_type, user: user)
     item2 = create(:item, title: 'Smartphone Samsung', registry_number: 'abcd',
-                  status: :owned,
-                  item_type: item_type2, user: user)
+                          status: :owned,
+                          item_type: item_type2, user: user)
     create(:item, title: 'Smartphone Motorola', registry_number: 'zxcv',
                   status: :owned, item_type: item_type2, user: user)
     login_as user, scope: :user
@@ -30,7 +31,7 @@ feature 'User reports stolen items' do
     check 'Notebook Dell'
     check 'Smartphone Samsung'
     click_on 'Reportar'
-    
+
     item1.reload
     item2.reload
     expect(current_path).to eq report_path(1)
@@ -43,8 +44,8 @@ feature 'User reports stolen items' do
     expect(page).not_to have_css('p', text: 'Smartphone Samsung')
     expect(page).to have_css('img[src*="boletim_de_ocorrencia.jpg"]')
     expect(page).not_to have_css('Não foi possível criar o relatório')
-    expect(item1.status).to eq("stolen")
-    expect(item2.status).to eq("stolen")
+    expect(item1.status).to eq('stolen')
+    expect(item2.status).to eq('stolen')
   end
 
   scenario 'and must fill address, date/time and have at least one item' do
@@ -65,7 +66,7 @@ feature 'User reports stolen items' do
     expect(page).to have_content('Endereço não pode ficar em branco')
   end
 
-  scenario 'and sees only his owned items' do 
+  scenario 'and sees only his owned items' do
     user = create(:user)
     user2 = create(:user)
     item_type = create(:item_type, name: 'Notebook')
