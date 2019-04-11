@@ -1,5 +1,7 @@
-<h1>Novo tipo de item</h1>
-<%= simple_form_for @item_type do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit, 'Salvar'%>
-<% end %>
+<div class="container">
+  <h1>Novo tipo de item</h1>
+  <%= simple_form_for @item_type, html: {class: 'col-md-6'} do |f| %>
+    <%= f.input :name %>
+    <%= f.button :submit, 'Salvar'%>
+  <% end %>
+</div>
