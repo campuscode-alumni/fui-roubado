@@ -26,7 +26,7 @@
               <li class="nav-item">
                 <%= link_to  "Meus itens", my_items_path, class:"nav-link" %>
               </li>
-              <li class="nav-item">
+              <li class="nav-item"> 
                 <%= link_to  "Meus relatórios", reports_path, class:"nav-link" %>
               </li>
               <li class="nav-item">
@@ -34,6 +34,9 @@
               </li>
           </ul>
           <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <p class="mt-3 mr-2 text-info"><%= "Bem vindo, #{current_user.name}." %></p>
+            </li>
             <li class="nav-item">
               <%= link_to  "Sair", destroy_user_session_path, method: :delete, class:"nav-link" %>
             </li>
@@ -46,6 +49,9 @@
             </li>
           </ul>
           <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <p class="mt-3 mr-2 text-info"><%= "Bem vindo, #{current_admin.email}." %></p>
+            </li>
             <li class="nav-item">
               <%= link_to  "Sair", destroy_admin_session_path, method: :delete, class:"nav-link" %>
             </li>

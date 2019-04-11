@@ -1,10 +1,4 @@
 <div class="container">
-  <% if user_signed_in? %>
-    <p><%= "Bem vindo, #{current_user.name}." %></p>
-  <%elsif admin_signed_in? %>
-    <%= "Bem vindo, #{current_admin.email}." %>
-  <% end %>
-
   <div class="mb-4">
     <h2>Pesquisar item roubado</h2>
   </div>
@@ -28,27 +22,26 @@
           center: {lat: -23.544922, lng: -46.665571},
           zoom: 12
         });
-
+        <% counter = 0 %>
         <% @reports.each do |report| %>
-          var contentString = '<p><%= t :item_title, count: report.items.count %></p>' + 
-                                  '<em>há <%= distance_of_time_in_words(report.ocurrance_date, Time.zone.now, include_seconds: true) %></em>'
+          
+          <% counter = counter + 1 %>
          
-          var infowindow = new google.maps.InfoWindow({
-            content: contentString
+          var infowindow<%=counter%> = new google.maps.InfoWindow({
+            content: '<p><%= t :item_title, count: report.items.count %></p>' + 
+                     '<em>há <%= distance_of_time_in_words(report.ocurrance_date, Time.zone.now, include_seconds: true) %></em>'
           });
 
-          var marker = new google.maps.Marker({
+          var marker<%=counter%> = new google.maps.Marker({
             position: {lat: <%= report.latitude %>, lng: <%= report.longitude %> },
             map: map,
-            title: "report <%= report.id %>" 
+            title: "Relatório <%= report.id %>" 
           });
-
           
+          marker<%=counter%>.addListener('click', function() {
+            infowindow<%=counter%>.open(map, marker<%=counter%>);
+          });
         <% end %>
-
-        marker.addListener('click', function() {
-          infowindow.open(map, marker);
-        });
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVRCc29IJ5ubYW7A8mFpKWwSn9sDe3fPs&callback=initMap" async defer></script>

@@ -1,7 +1,9 @@
-<h1>Tipos de itens</h1>
-<p><%= link_to  "Criar tipo de item", new_item_type_path %></p>
-<ul>
-<% @item_types.each do |type| %>
-  <li><%= type.name %></li>
-<% end %>
-</ul>
+<div class="container">
+  <h1>Tipos de itens</h1>
+  <p><%= link_to  "Criar tipo de item", new_item_type_path, class: 'btn btn-info'  %></p>
+  <ul>
+  <% @item_types.each do |type| %>
+    <li><%= type.name %></li>
+  <% end %>
+  </ul>
+</div>
