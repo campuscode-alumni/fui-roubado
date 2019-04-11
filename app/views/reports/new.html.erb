@@ -1,7 +1,7 @@
 
 <div class="container">
   <h1>Reportar roubo</h1>
-  <%= simple_form_for @report do |f| %>
+  <%= simple_form_for @report, html: {class: 'col-md-6'} do |f| %>
     <%= f.input :address, label: 'Endereço' %>
     <%= f.input :ocurrance_date, html: true %>
     <%= f.input :description, label: 'Descrição do ocorrido' %>
@@ -10,6 +10,6 @@
       label_html: { class: 'custom-file-label' } %>
     <h4>Itens</h4>
     <%= f.collection_check_boxes :item_ids, @items, :id, :title, item_wrapper_class: 'form-check', label_html: {class: 'ml-2'} %>
-    <p><%= f.submit 'Reportar' %></p>
+    <p><%= f.submit 'Reportar', class: 'btn btn-primary' %></p>
   <% end %>
 </div>

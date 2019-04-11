@@ -7,7 +7,7 @@
 
   <h1>Cadastrar novo item</h1>
 
-  <%= simple_form_for @item do |f| %>
+  <%= simple_form_for @item, html: {class: 'col-md-6'} do |f| %>
     <%= f.association :item_type, label: 'Tipo' %>
     <%= f.association :brand, label: 'Marca' %>
     <%= f.input :title, label: 'Título' %>
