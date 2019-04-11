@@ -26,7 +26,7 @@ report1 = Report.create!(user: user, description: 'Assalto no ponto de ônibus',
 Report.create!(user: user, description: 'Ladrão',
                ocurrance_date: '2015-02-03 18:00:50',
                address: 'Alameda Santos, 1293, São Paulo, SP', items:[item2])
-item1.photo.attach(io: File.open(Rails.root.join('public', 'nokia1.jpg')), filename: 'nokia1.jpg')
-item2.photo.attach(io: File.open(Rails.root.join('public', 'nokia2.jpg')), filename: 'nokia2.jpg')
-item3.photo.attach(io: File.open(Rails.root.join('public', 't3i.jpg')), filename: 't3i.jpg')
+item1.photo.attach(io: File.open(Rails.root.join('public', 'smartphone1.jpg')), filename: 'smartphone1.jpg')
+item2.photo.attach(io: File.open(Rails.root.join('public', 'smartphone2.jpg')), filename: 'smartphone2.jpg')
+item3.photo.attach(io: File.open(Rails.root.join('public', 'camera.jpg')), filename: 'camera.jpg')
 report1.police_report.attach(io: File.open(Rails.root.join('public', 'boletim_de_ocorrencia.jpg')), filename: 'boletim_de_ocorrencia.jpg')
