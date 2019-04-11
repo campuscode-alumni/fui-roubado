@@ -12,7 +12,7 @@ class ReportsController < ApplicationController
   def new
     @report = Report.new
     @items = Item.where(user: current_user, status: :owned)
-    
+
     return unless @items.empty?
 
     flash[:alert] = 'Não há itens cadastrados para serem reportados'
