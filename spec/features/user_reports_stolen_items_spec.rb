@@ -87,4 +87,20 @@ feature 'User reports stolen items' do
     expect(page).not_to have_content('Smartphone Samsung')
     expect(page).not_to have_content('Smartphone Motorola')
   end
+
+  scenario 'and report must have coordinates' do
+    user = create(:user)
+    item_type = create(:item_type, name: 'Notebook')
+    item = create(:item, title: 'Notebook Dell',
+                         registry_number: '12345678910',
+                         status: :owned,
+                         item_type: item_type, user: user)
+    login_as user, scope: :user
+    report = create(:report, ocurrance_date: '2017-02-02 20:05:50',
+                             address: 'Alameda Santos, 1293',
+                             items: [item], user: user)
+
+    expect(report.latitude).to eq(-23.5720284)
+    expect(report.longitude).to eq(-46.6454917)
+  end
 end

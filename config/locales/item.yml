@@ -1,4 +1,8 @@
 pt-BR:
+  item_title:
+    zero: 'Nenhum item'
+    one: 'Um item'
+    other: '%{count} itens' 
   activerecord:
     models:
       item: 'Item'

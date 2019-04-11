@@ -19,3 +19,20 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
  @import 'footer';
+ @import 'map';
+
+ .form-check {
+   padding-left: 0px;
+   
+   label {
+     margin-left: 0.8rem;
+   }
+ }
+
+ .border-owned {
+   @extend .border-success
+ }
+
+ .border-stolen {
+   @extend .border-danger
+}

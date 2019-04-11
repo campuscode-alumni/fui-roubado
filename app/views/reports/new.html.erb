@@ -8,7 +8,8 @@
     <%= f.input :police_report, label: 'Boletim de ocorrência', as: :file,
       wrapper_html: { class: 'custom-file mb-3 mt-2' }, input_html: { class: 'custom-file-input' },
       label_html: { class: 'custom-file-label' } %>
-    <%= f.collection_check_boxes :item_ids, @items, :id, :title %>
-    <%= f.submit 'Reportar' %>
+    <h4>Itens</h4>
+    <%= f.collection_check_boxes :item_ids, @items, :id, :title, item_wrapper_class: 'form-check', label_html: {class: 'ml-2'} %>
+    <p><%= f.submit 'Reportar' %></p>
   <% end %>
 </div>

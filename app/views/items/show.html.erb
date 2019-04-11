@@ -4,19 +4,27 @@
 
   <div class="card mb-3">
     <h3 class="card-header"><%= @item.title %></h3>
+    <% if @item.photo.attached? %>
+      <%= image_tag @item.photo, class: 'w-25 p-3' %>
+    <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= @item.item_type.name %></h5>
       <h6 class="card-subtitle text-muted">Número de registro: <%= @item.registry_number %></h6>
     </div>
     <div class="card-body">
-      <p class="card-text">Marcar: <%= @item.brand.name%></p>
+      <p class="card-text">
+        <% if @item.report %>
+          Item roubado. <%= link_to 'Relatório', @item.report %>
+        <% else %>
+          Item ok.
+        <% end %></p>
+
+      <p class="card-text">Marca: <%= @item.brand.name%></p>
       <p class="card-text">Modelo: <%= @item.model%></p>
       <p class="card-text">Cor: <%= @item.color%></p>
       <p class="card-text">Descrição: <%= @item.description%></p>
 
-        <% if @item.photo.attached? %>
-          <%= image_tag @item.photo %>
-        <% end %>
+        
   <% else %>
     <%= simple_form_for([@item, @item_found]) do |f| %>
       <%= f.input :message, label: 'Paradeiro do item:' %>
